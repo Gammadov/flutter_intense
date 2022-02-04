@@ -35,11 +35,20 @@ import 'task43.dart';
 import 'les43_b.dart';
 
 void main(){
-  DoubleN primer1 = DoubleN(10);
-  primer1.num2 = -11;
-  print(primer1.num2);
+  // DoubleN primer1 = DoubleN(10);
+  // primer1.num2 = -11;
+  // print(primer1.num2);
+  //
+  //
+  // Character man = Character('name', 0);
+  // // man.gender;
 
-
-  Character man = Character('name', 0);
-  // man.gender;
+  Parallelepiped cube = Parallelepiped(20, 30, 40);
+  print(cube.volume);
+  cube.bottom_square = 10;
+  print(cube.bottom_square);
+  print(cube.length);
+  print(cube.width);
+  print(cube.name);
+  cube.name = 'some';
 }
