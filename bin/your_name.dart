@@ -4,6 +4,19 @@ void main(List<String> arguments) {
   someFun2(5, 61);
   sum(20, -5);
 
+  int x = 5;
+  x = x * 4;
+  double y = 10 / x;
+  double z = delenie(chisl: 10, znam: 11);
+  y = z + y;
+}
+
+double delenie({required double chisl, required double znam}){
+  if(znam == 0){
+    print('Ошибка!');
+    return -1;
+  }
+  else return chisl / znam ;;
 }
 
 
