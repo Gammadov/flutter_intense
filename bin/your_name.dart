@@ -7,7 +7,7 @@ void main(List<String> arguments) {
   int x = 5;
   x = x * 4;
   double y = 10 / x;
-  double z = delenie(chisl: 10, znam: 11);
+  double z = delenie(chisl: 10, znam: 11 == 0 ? 1 : 11);
   y = z + y;
 }
 
