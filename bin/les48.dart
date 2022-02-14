@@ -1,6 +1,7 @@
 void main() {
   List<int> numbers = [-3, -1, 2, 4, 5, 7];
 
+
   //распечатаем список
   // print(numbers); // [-3, -1, 2, 4, 5, 7]
   //
@@ -14,8 +15,8 @@ void main() {
   // // print(numbers.length);
   // //
   // // // reversed: возвращает список, в котором все элементы расположены в противоположном порядке
-  // // print(numbers.reversed.toList());
-  // // print(numbers);
+  // print(numbers.reversed.toList());
+  // print(numbers);
   // //
   // // // isEmpty: возвращает true, если список пуст
   // // print(numbers.isEmpty);
@@ -57,8 +58,8 @@ void main() {
   // // print(numbers);
   // //
   // // // sort(): сортирует список
-  // // numbers.sort();
-  // // print(numbers);
+  // numbers.sort();
+  // print(numbers);
   // //
   // // // sublist(int start, [ int end ]): возвращает часть списка от индекса start до индекса end
   // // print(numbers.sublist(3));
