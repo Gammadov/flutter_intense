@@ -3,7 +3,7 @@ void main() {
 
 
   //распечатаем список
-  // print(numbers); // [-3, -1, 2, 4, 5, 7]
+  print(numbers); // [-3, -1, 2, 4, 5, 7]
   //
   // // // first: возвращает первый элемент
   // // print(numbers.first);
@@ -87,30 +87,30 @@ void main() {
 
   // ссылочный тип данных!
   // List<int> anotherNums = numbers;
-  List<int> anotherNums = [...numbers];
-  anotherNums.removeAt(3);
-  print(anotherNums);
-  //
+  // List<int> anotherNums = [...numbers];
+  // anotherNums.removeAt(3);
   // print(anotherNums);
-  // print(numbers);
+  // //
+  // // print(anotherNums);
+  // // print(numbers);
+  // //
+  // // print(anotherNums[4]);
   //
-  // print(anotherNums[4]);
-
-  // выход за пределы
-  // print(anotherNums[11]);
-
-  for(int i = 0; i < anotherNums.length; i += 2){
-    print('i = $i');
-    print(anotherNums[i]);
-  }
-
-  for (int element in anotherNums){
-    print(element >= 5);
-  }
-
-  print('');
-  print('forEach');
-  anotherNums.forEach((element) => print(element.isOdd));
+  // // выход за пределы
+  // // print(anotherNums[11]);
+  //
+  // for(int i = 0; i < anotherNums.length; i += 2){
+  //   print('i = $i');
+  //   print(anotherNums[i]);
+  // }
+  //
+  // for (int element in anotherNums){
+  //   print(element >= 5);
+  // }
+  //
+  // print('');
+  // print('forEach');
+  // anotherNums.forEach((element) => print(element.isOdd));
 
   // // получим первый элемент
   // print(list.first);  // -3
