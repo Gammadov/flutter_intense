@@ -1,10 +1,15 @@
 void main() {
-  List<List<int>> some = [
+  List<List<int>> two_dim_List = [
     [1, 2],
-    [3, 4]
+    [3, 4],
+    [5, 6],
   ];
 
-  print(some[1][1]);
+  print(two_dim_List);
+  print(two_dim_List[2]);
+  print(two_dim_List[2][0]);
+
+
   List<List<String>> noble_gases = [
     ["Atomic number", "Symbol", "Name", "Standard atomic weight"],
     ['2', 'He', 'Гелий ', '4.002602(2) '],
@@ -16,5 +21,8 @@ void main() {
     ['118', 'Oq', 'Оганесон ', '(294)']
   ];
 
-  print(noble_gases);
+  // // print(noble_gases);
+  // for(var item in noble_gases){
+  //   print(item);
+  // }
 }
