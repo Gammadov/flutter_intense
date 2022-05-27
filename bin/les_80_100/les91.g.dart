@@ -6,18 +6,16 @@ part of 'les91.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-User _$UserFromJson(Map<String, dynamic> json) => User(
-      json['id'],
-      json['email'],
-      json['first_name'],
-      json['last_name'],
-      json['avatar'],
+Todo _$TodoFromJson(Map<String, dynamic> json) => Todo(
+      json['userId'] as int,
+      json['id'] as int,
+      json['title'] as String,
+      json['completed'] as bool,
     );
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+Map<String, dynamic> _$TodoToJson(Todo instance) => <String, dynamic>{
+      'userId': instance.userId,
       'id': instance.id,
-      'email': instance.email,
-      'first_name': instance.first_name,
-      'last_name': instance.last_name,
-      'avatar': instance.avatar,
+      'title': instance.title,
+      'completed': instance.completed,
     };

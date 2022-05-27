@@ -43,49 +43,51 @@
 //   });
 // }
 
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:json_annotation/json_annotation.dart';
-
-part 'les91.g.dart';
-
-@JsonSerializable()
-class Todo {
-  final int userId;
-  final int id;
-  final String title;
-  final bool completed;
-
-  Todo(this.userId, this.id, this.title, this.completed);
-
-  factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
-}
-
 void main() {
-  final getRequest =
-      http.get(Uri.parse('https://jsonplaceholder.typicode.com/todos'));
-
-  getRequest.then((response) {
-    String jsonString = response.body;
-    // print(jsonString);
-
-    // List<dynamic> dynamicList = jsonDecode(jsonString);
-    final dynamicList = jsonDecode(jsonString);
-    // print(dynamicList.runtimeType);
-    // print(dynamicList[29]);
-
-    // Todo singleTodo = Todo.fromJson(dynamicList[29]);
-    // print(singleTodo);
-    // print(singleTodo.id);
-
-    List<Todo> todos = List.generate(dynamicList.length, ((index) => Todo.fromJson(dynamicList[index])));
-    print(todos);
-    print(todos.length);
-  });
-
-
-    List ints = List.generate(5, ((index) => index * 2));
-
+  // jsonArray();
+  // jsonMap();
+  jsonOther();
 }
 
+void jsonArray() {
+  String jsonArray = '[ 1, 2.5, "string", true, null, {"key": "value"} ]';
+  String jsonMap =
+      '{ "k1": 1, "k2": 2.5, "k3": "string", "k4": false, "k5": null }';
+
+  final dynamicList = jsonDecode(jsonArray);
+  print(dynamicList.runtimeType);
+
+  for (var element in dynamicList) {
+    print('$element \t is \t ${element.runtimeType}');
+  }
+}
+
+void jsonMap() {
+  String jsonArray = '[ 1, 2.5, "string", true, null ]';
+  String jsonMap =
+      '{ "k1": 1, "k2": 2.5, "k3": "string", "k4": false, "k5": null, "k6": [] }';
+
+  final map = jsonDecode(jsonMap);
+  print(map.runtimeType);
+  print(map.keys);
+
+  for (var element in map.values) {
+    print('$element \t is \t ${element.runtimeType}');
+  }
+}
+
+void jsonOther() {
+  String jsonArray = '[ 1, 2.5, "string", true, null ]';
+  String jsonMap =
+      '{ "k1": 1, "k2": 2.5, "k3": "string", "k4": false, "k5": null }';
+
+  String json1 = '[ {"first" : "A" }, {"second" : "B" }, {"third" : "C" } ]';
+  String json2 = '{ "nums": [-2, -1, 0], "bools": [true, true, false] }';
+
+  final result = jsonDecode(json2);
+  print(result.runtimeType);
+  // print(result[0].runtimeType);
+  print(result['bools']);
+}
