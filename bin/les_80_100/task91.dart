@@ -1,82 +1,41 @@
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
-
 import 'package:json_annotation/json_annotation.dart';
-
 part 'task91.g.dart';
 
+void users() async{
+  final response = await http.get(Uri.parse('https://reqres.in/api/users?page=2'));
+  String jsonString = response.body;
+  final dartMap = jsonDecode(jsonString);
+  final dynamicList = dartMap["data"];
+
+  List<User> users = List.generate(dynamicList.length, (index) => User.fromJson(dynamicList[index]));
+  print(users[4]);
+  print(users[4].avatar);
+  print(users[4].email);
+}
+
+
 @JsonSerializable()
-class Post {
-  final int userId;
+class User{
   final int id;
-  final String title;
-  final String body;
+  final String email;
+  final String first_name;
+  final String last_name;
+  final String avatar;
 
-  Post(this.userId, this.id, this.title, this.body);
+  User(this.id, this.email, this.first_name, this.last_name, this.avatar);
 
-  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PostToJson(this);
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }
 
-void main() {
-  example2();
+void main(){
+  users();
 }
 
-void example1() {
-  String jsonString = '''
-  [
-  {
-    "userId": 3,
-    "id": 1,
-    "title": "sunt aut \n",
-    "body": "quia et \n"
-  }
-  ]
-  ''';
 
-  // final jsonList = jsonDecode(jsonString.replaceAll('\n', ' ')) as List<dynamic>;
-  List<dynamic> jsonList = jsonDecode(jsonString.replaceAll('\n', ' '));
-  print(jsonList[0]);
-  print((jsonList[0] as Map<String, dynamic>)['title']);
 
-  Post publication = Post.fromJson(jsonList[0] as Map<String, dynamic>);
-  print(publication);
-  print(publication.body);
-  print(publication.userId);
-}
 
-void example2() {
-  String jsonString = '''
-  [
-  {
-    "userId": 3,
-    "id": 1,
-    "title": "sunt aut \n",
-    "body": "quia et \n"
-  }
-  ]
-  ''';
-
-  final getRequest =
-      http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-  getRequest.then((responseJSON) {
-    jsonString = responseJSON.body;
-
-    // final jsonList = jsonDecode(jsonString.replaceAll('\n', ' ')) as List<dynamic>;
-    final jsonList = jsonDecode(jsonString.replaceAll('\n', ' '));
-
-    print(jsonList[1]);
-    print('');
-    print((jsonList[1] as Map<String, dynamic>)['title']);
-
-    // Post publication = Post.fromJson(jsonList[1] as Map<String, dynamic>);
-    // print('');
-    // print(publication.title);
-
-    final jsonMap = jsonList.map((dynamic element) => Post.fromJson(element as Map<String, dynamic>));
-    List<dynamic> publications = jsonMap.toList();
-    print((publications[1] as Post).title);
-  });
-}
