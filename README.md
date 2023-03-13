@@ -1,1 +1,1 @@
-A simple command-line application.
+Dart code from intense_it lessons.
